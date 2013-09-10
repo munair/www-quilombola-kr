@@ -93,8 +93,8 @@ sleep 5
 git merge development
 git push origin staging
 heroku git:remote -a munair-quilombola-kr-staging -r staging-heroku
-curl http://munair-quilombola-kr-staging.herokuapp.com | more
 git push staging-heroku staging:master
+curl http://munair-quilombola-kr-staging.herokuapp.com | more
 git checkout master
 git branch
 sleep 5
