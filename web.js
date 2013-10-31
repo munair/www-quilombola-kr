@@ -1,15 +1,43 @@
 var express = require('express');
 var fs = require('fs');
-var postmark = require("postmark")("4de1b518-9aac-4e43-af9b-1915c1f984c5");
+var postmark = require("postmark")(process.env.POSTMARK_API_KEY);
+var swig = require('swig');
 
 
-var app = express.createServer(express.logger());
+var app = express(express.logger());
 
 app.use(express.bodyParser());
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/');
 
 app.get('/', function(request, response) {
-  var htmlBuffer = fs.readFileSync('index.html', 'utf-8');
-  response.send(htmlBuffer);
+  _metatags = swig.compileFile('_metatags.html');
+  _stylesheets = swig.compileFile('_stylesheets.html');
+  _javascript = swig.compileFile('_javascript.html');
+  _tabHome = swig.compileFile('_tabHome.html');
+  _tabAbout = swig.compileFile('_tabAbout.html');
+  _tabContact = swig.compileFile('_tabContact.html');
+  _tabProjects = swig.compileFile('_tabProjects.html');
+  _analytics = swig.compileFile('_analytics.html');
+  meta = _metatags();
+  css = _stylesheets();
+  js = _javascript();
+  home = _tabHome();
+  about = _tabAbout();
+  contact = _tabContact();
+  projects = _tabProjects();
+  ga = _analytics();
+  response.render('index', { 
+	pagename: 	'quilombola',
+	metatags: 	meta,
+	stylesheets: 	css,
+	javascript: 	js,
+	tabHome:	home,
+	tabAbout:	about,
+	tabContact:	contact,
+	tabProjects:	projects,
+	analytics: 	ga });
 });
 
 app.post('/contact', function(request, response) {
@@ -18,9 +46,9 @@ app.post('/contact', function(request, response) {
   var comments = request.body.comments;
   var out = "contact name: " + name + "\tcontact email: " + email + "\tcomments: " + comments + "\n";
   postmark.send({
-    "From": "zumbi@cdoseoul.com",
-    "To": "zumbi@cdoseoul.com",
-    "Subject": "Free Class Signup Form Submission",
+    "From": "munair@quilombola.com",
+    "To": "info@quilombola.com",
+    "Subject": "Quilombola Information Request",
     "TextBody": out,
     "Tag": "registrant"
   }, function(error, success) {
