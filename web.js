@@ -59,8 +59,32 @@ app.post('/contact', function(request, response) {
     console.info("Sent to postmark for delivery")
   });
 
-  var htmlBuffer = fs.readFileSync('contact.html', 'utf-8');
-  response.send(htmlBuffer);
+  _metatags = swig.compileFile('_metatags.html');
+  _stylesheets = swig.compileFile('_stylesheets.html');
+  _javascript = swig.compileFile('_javascript.html');
+  _tabHome = swig.compileFile('_tabHome.html');
+  _tabAbout = swig.compileFile('_tabAbout.html');
+  _tabContact = swig.compileFile('_tabContact.html');
+  _tabProjects = swig.compileFile('_tabProjects.html');
+  _analytics = swig.compileFile('_analytics.html');
+  meta = _metatags();
+  css = _stylesheets();
+  js = _javascript();
+  home = _tabHome();
+  about = _tabAbout();
+  contact = _tabContact();
+  projects = _tabProjects();
+  ga = _analytics();
+  response.render('contact', {
+        pagename:       'quilombola',
+        metatags:       meta,
+        stylesheets:    css,
+        javascript:     js,
+        tabHome:        home,
+        tabAbout:       about,
+        tabContact:     contact,
+        tabProjects:    projects,
+        analytics:      ga });
 });
 
 var port = process.env.PORT || 8080;

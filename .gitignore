@@ -7,6 +7,3 @@ node_modules
 
 # Mac
 .DS_Store
-
-# edit.bash should not be included in the repository
-edit.bash

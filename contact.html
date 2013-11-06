@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quilombola">
-    <meta name="author" content="Quilombola Engineering">
-    <link rel="shortcut icon" href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/favicon.png">
+<head>
+  <title>{{ pagename|title }}</title>
+  <link rel="shortcut icon" href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/favicon.png">
+  {{metatags|safe}}
+  {{stylesheets|safe}}
+  {{javascript|safe}}
+</head>
+<body>
 
-    <title>Quilombola</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/sticky-footer.css" rel="stylesheet">
-    <link href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/stylized-form.css" rel="stylesheet">
-
-    <!-- jQuery via maxCDN -->
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-
-    <!-- Bootstrap Modal JS -->
-    <script src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/modal.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/html5shiv.js"></script>
-      <script src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
+    <!-- Icon Provider : VisualPharm : http://www.visualpharm.com -->
     <!-- Wrap all page content here -->
     <div id="wrap">
 
       <!-- Begin page content -->
       <div class="container">
-        <div class="page-header">
-          <h1>Quilombola</h1>
-        </div>
-        <p> Thanks for getting in touch with us. We will contact you via the email you supplied shortly. </p>
-	<img width="20px" src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/quilombola-icon.png">
-	<hr />
-      </div>
-    </div>
-  </body>
+	<div class="row">
+	  <div class="col-xs-12 col-md-4 col-xs-offset-3 col-md-offset-4">
+	    <div class="page-header qu-heading"> <span class="qu-logo">mettlesome marketing</span> <br> <span class="qu-brand">inspired impactful initiatives</span> </div>
+	    <ul class="nav nav-tabs" id="myTab">
+	      <li class="active"><a href="#home"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/home-icon.png" alt="home" title="home" width="15px"></a></li>
+	      <li><a href="#about"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/info-icon.png" alt="about us" title="about us" width="15px"></a></li>
+	      <li><a href="#contact"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/contact-icon.png" alt="contact us" title="contact us" width="15px"></a></li>
+	      <li><a href="#projects"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/work-in-progress-icon.png" alt="work in progress" title="work in progress" width="15px"></a></li>
+	    </ul>
+	    <div class="tab-content">
+  	      {{tabHome|safe}}
+  	      {{tabAbout|safe}}
+  	      {{tabContact|safe}}
+  	      {{tabProjects|safe}}
+	    </div>
+	    <div class="alert alert-success alert-dismissable">
+	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	      <strong>Thanks for getting in touch with us.</strong> We will contact you using the information that you just supplied shortly.
+	    </div>
+	    <script>
+	    $('#myTab a').click(function (e) {
+	      e.preventDefault()
+	      $(this).tab('show')
+	    })
+	    </script>
+	    </div>
+	  </div><!-- end of column -->
+	</div><!-- end of row -->
+      </div><!-- end of container -->
+    </div><!-- end of wrap -->
+  {{analytics|safe}}
+</body>
 </html>
