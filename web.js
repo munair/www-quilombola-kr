@@ -1,90 +1,53 @@
 var express = require('express');
 var fs = require('fs');
-var postmark = require("postmark")(process.env.POSTMARK_API_KEY);
-var swig = require('swig');
+var postmark = require("postmark")("db375280-7dd3-4240-89db-1e19ee9e939e")
 
+var app = express();
 
-var app = express(express.logger());
-
+app.use(express.logger('dev'));
 app.use(express.bodyParser());
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
-app.set('views', __dirname + '/');
+app.use("/js", express.static(__dirname + '/js'));
+app.use("/css", express.static(__dirname + '/css'));
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/fonts", express.static(__dirname + '/fonts'));
+app.use("/sounds", express.static(__dirname + '/sounds'));
 
-app.get('/', function(request, response) {
-  _metatags = swig.compileFile('_metatags.html');
-  _stylesheets = swig.compileFile('_stylesheets.html');
-  _javascript = swig.compileFile('_javascript.html');
-  _tabHome = swig.compileFile('_tabHome.html');
-  _tabAbout = swig.compileFile('_tabAbout.html');
-  _tabContact = swig.compileFile('_tabContact.html');
-  _tabProjects = swig.compileFile('_tabProjects.html');
-  _analytics = swig.compileFile('_analytics.html');
-  meta = _metatags();
-  css = _stylesheets();
-  js = _javascript();
-  home = _tabHome();
-  about = _tabAbout();
-  contact = _tabContact();
-  projects = _tabProjects();
-  ga = _analytics();
-  response.render('index', { 
-	pagename: 	'quilombola',
-	metatags: 	meta,
-	stylesheets: 	css,
-	javascript: 	js,
-	tabHome:	home,
-	tabAbout:	about,
-	tabContact:	contact,
-	tabProjects:	projects,
-	analytics: 	ga });
-});
+app.get('/', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/proprietor', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/contact', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_proprietor.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_proprietor.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_contact.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_contact.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_email.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_email.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_formconfirmation.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_formconfirmation.html', 'utf-8'); response.send(htmlBuffer); });
 
-app.post('/contact', function(request, response) {
+app.post('/inc_email.html', function(request, response) {
   var name = request.body.name;
   var email = request.body.email;
-  var comments = request.body.comments;
-  var out = "contact name: " + name + "\tcontact email: " + email + "\tcomments: " + comments + "\n";
+  var mobile = request.body.mobile;
+  var message = request.body.message;
+  var validation = request.body.validation;
+  var out = 'contact name: ' + name 
+          + '\ncontact email: ' + email 
+          + '\nmobile: ' + mobile 
+          + '\nmessage: ' + message
+          + '\nvalidation: ' + validation 
+          + '\n';
+
   postmark.send({
-    "From": "munair@quilombola.com",
-    "To": "info@quilombola.com",
-    "Subject": "Quilombola Information Request",
-    "TextBody": out,
-    "Tag": "registrant"
+    "From" : "munair@quilombola.kr",
+    "To" : "munair@quilombola.kr",
+    "Subject" : "Contact from www.quilombola.kr",
+    "Tag" : "Inquiry",
+    "TextBody" : out
   }, function(error, success) {
-       if(error) {
+      if(error) {
           console.error("Unable to send via postmark: " + error.message);
          return;
-       }
-    console.info("Sent to postmark for delivery")
+      }
+      console.info("Sent to postmark for delivery")
   });
 
-  _metatags = swig.compileFile('_metatags.html');
-  _stylesheets = swig.compileFile('_stylesheets.html');
-  _javascript = swig.compileFile('_javascript.html');
-  _tabHome = swig.compileFile('_tabHome.html');
-  _tabAbout = swig.compileFile('_tabAbout.html');
-  _tabContact = swig.compileFile('_tabContact.html');
-  _tabProjects = swig.compileFile('_tabProjects.html');
-  _analytics = swig.compileFile('_analytics.html');
-  meta = _metatags();
-  css = _stylesheets();
-  js = _javascript();
-  home = _tabHome();
-  about = _tabAbout();
-  contact = _tabContact();
-  projects = _tabProjects();
-  ga = _analytics();
-  response.render('contact', {
-        pagename:       'quilombola',
-        metatags:       meta,
-        stylesheets:    css,
-        javascript:     js,
-        tabHome:        home,
-        tabAbout:       about,
-        tabContact:     contact,
-        tabProjects:    projects,
-        analytics:      ga });
+  response.redirect('/inc_formconfirmation.html');
 });
 
 var port = process.env.PORT || 8080;

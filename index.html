@@ -1,46 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>{{ pagename|title }}</title>
-  <link rel="shortcut icon" href="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/favicon.png">
-  {{metatags|safe}}
-  {{stylesheets|safe}}
-  {{javascript|safe}}
-</head>
-<body>
+<html>
+    <head>
+        <base href="/" />
+        <meta charset="UTF-8">
+        <title>Quilombola</title>
+        <meta name="description" content="quilobola portfolio of services.">
+        <meta name="keywords" content="quilombola, strategy, marketing, arts, recreation, capoeira, meditation, health and fitness" />                
+        <meta property="og:title" content="Quilombola" />
+        <meta property="og:image" content="http://www.quilombola.kr/images/logo.png" />
+        <meta property="og:description" content="quilobola portfolio of services." />
+        <meta property="og:url" content="http://www.quilombola.kr/" />
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/styles.css">
+	<link rel="shortcut icon" type="image/png" href="images/q-icon.png">
+        <meta id="viewport" name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>js_path = '/'; mecre_lang = 'en'; </script>        
+        <script type="text/javascript" src="js/custom.min.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-43897774-1', 'quilombola.kr');
+          ga('send', 'pageview');
+          ga('set', 'anonymizeIp', true);
+        </script>
+    </head>
+    
+    <body>
+        <div class="logo"><img src="images/logo.png" width="200" alt="quilombola" /></div>
 
-    <!-- Icon Provider : VisualPharm : http://www.visualpharm.com -->
-    <!-- Wrap all page content here -->
-    <div id="wrap">
+        <div id="content"></div>        
 
-      <!-- Begin page content -->
-      <div class="container">
-	<div class="row">
-	  <div class="col-xs-12 col-md-4 col-xs-offset-3 col-md-offset-4">
-	    <div class="page-header qu-heading"> <span class="qu-logo">mettlesome marketing</span> <br> <span class="qu-brand">inspired impactful initiatives</span> </div>
-	    <ul class="nav nav-tabs" id="myTab">
-	      <li class="active"><a href="#home"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/home-icon.png" alt="home" title="home" width="15px"></a></li>
-	      <li><a href="#about"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/info-icon.png" alt="about us" title="about us" width="15px"></a></li>
-	      <li><a href="#contact"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/contact-icon.png" alt="contact us" title="contact us" width="15px"></a></li>
-	      <li><a href="#projects"><img src="https://s3-ap-northeast-1.amazonaws.com/www-quilombola-kr/work-in-progress-icon.png" alt="work in progress" title="work in progress" width="15px"></a></li>
-	    </ul>
-	    <div class="tab-content">
-  	      {{tabHome|safe}}
-  	      {{tabAbout|safe}}
-  	      {{tabContact|safe}}
-  	      {{tabProjects|safe}}
-	    </div>
-	    <script>
-	    $('#myTab a').click(function (e) {
-	      e.preventDefault()
-	      $(this).tab('show')
-	    })
-	    </script>
-	    </div>
-	  </div><!-- end of column -->
-	</div><!-- end of row -->
-      </div><!-- end of container -->
-    </div><!-- end of wrap -->
-  {{analytics|safe}}
-</body>
+        <div class="menu">
+            <a href="javascript:void(0);" data-link="home" data-name="Home" id="current">Home</a>
+            <a href="javascript:void(0);" data-link="proprietor" data-name="Proprietor" >Proprietor</a>
+            <a href="javascript:void(0);" data-link="contact" data-name="Contact" >Contact</a>
+        </div>
+
+        <ul id="mobile_menu">
+            <li><a href="javascript:void(0);" data-link="home">Home</a></li>
+            <li><a href="javascript:void(0);" data-link="proprietor">Proprietor</a></li>
+            <li><a href="javascript:void(0);" data-link="contact">Contact</a></li>
+	    <li><a href="http://www.quilombola.com">Language: EN</a></li>
+        </ul>        
+
+	<div class="services">
+            <a href="http://www.quilombola.kr" class="current">Recreation</a>
+            <a href="http://www.quilombola.kr" >Strategies</a>
+        </div>        
+
+        <div class="lang">            
+            <a href="http://www.quilombola.com" >EN</a>
+            <a href="http://www.quilombola.kr" class="current">KR</a>
+        </div>        
+
+        <div class="controls">
+            <div class="fullscreen"></div>
+            <div class="more-button">
+                <div class="container">
+                    <a href="https://twitter.com/quilombola" onclick="window.open(this.href); return false;" class="share-btn twitter"></a>
+                    <a href="https://www.facebook.com/quilombola" onclick="window.open(this.href); return false;" class="share-btn facebook"></a>
+                    <a href="https://plus.google.com/quilombola" rel="publisher" onclick="window.open(this.href); return false;" class="share-btn google"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg"></div>
+    </body>
 </html>
