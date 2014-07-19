@@ -1,6 +1,10 @@
 var express = require('express');
 var fs = require('fs');
 var postmark = require("postmark")("db375280-7dd3-4240-89db-1e19ee9e939e")
+<<<<<<< HEAD
+=======
+
+>>>>>>> staging
 
 var app = express();
 
@@ -13,8 +17,10 @@ app.use("/fonts", express.static(__dirname + '/fonts'));
 app.use("/sounds", express.static(__dirname + '/sounds'));
 
 app.get('/', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/services', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/proprietor', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/contact', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_services.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_services.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_proprietor.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_proprietor.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_contact.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_contact.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_email.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_email.html', 'utf-8'); response.send(htmlBuffer); });
@@ -34,9 +40,15 @@ app.post('/inc_email.html', function(request, response) {
           + '\n';
 
   postmark.send({
+<<<<<<< HEAD
     "From" : "munair@quilombola.kr",
     "To" : "munair@quilombola.kr",
     "Subject" : "Contact from www.quilombola.kr",
+=======
+    "From" : "munair@quilombolaquilombola.kr",
+    "To" : "munair@quilombolaquilombola.kr",
+    "Subject" : "Contact from www.quilombolaquilombola.kr",
+>>>>>>> staging
     "Tag" : "Inquiry",
     "TextBody" : out
   }, function(error, success) {

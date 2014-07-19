@@ -48,8 +48,8 @@ strong {font-weight:600;}
 .menu a::before {color: #ffcc00;content: attr(data-name);position: absolute;opacity: 0;text-shadow: 0 0 5px rgba(0,0,0,1);-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;-moz-transition: -moz-transform 0.3s, opacity 0.3s;transition: transform 0.3s, opacity 0.3s;pointer-events: none;}
 .menu a#current::before,.menu a:hover::before,.menu a:focus::before {-webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);opacity: 1;outline: none;}
 
-.services {font-family: 'NeuropolXFreeRegular', sans-serif;position:fixed;bottom:50%;left:60px;animation: fadein 3s;-moz-animation: fadein 3s; -webkit-animation: fadein 3s;-o-animation: fadein 3s;display:none;z-index:9999;}
-.services a {position: relative;display: inline-block;outline: none;width:132px;height:22px;line-height:22px;text-align:center;color: #cbcbcb;text-decoration: none;text-transform: uppercase;font-weight: 400;text-shadow: 0 0 1px rgba(255,255,255,0.3);font-size: 10px;overflow: hidden;border:1px solid #666;border-radius:4px;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
+.services {font-family: 'NeuropolXFreeRegular', sans-serif;position:fixed;bottom:50%;right:50%;animation: fadein 3s;-moz-animation: fadein 3s; -webkit-animation: fadein 3s;-o-animation: fadein 3s;display:none;z-index:9999;}
+.services a {position: relative;display: inline-block;outline: none;width:200px;height:22px;line-height:22px;text-align:center;color: #cbcbcb;text-decoration: none;text-transform: uppercase;font-weight: 400;text-shadow: 0 0 1px rgba(255,255,255,0.3);font-size: 10px;overflow: hidden;border:1px solid #666;border-radius:4px;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 .services a.current, .services a:hover, .services a:focus {outline: none;color:#fff;background:#666;}
 
 .lang {font-family: 'NeuropolXFreeRegular', sans-serif;position:fixed;bottom:85px;right:60px;animation: fadein 3s;-moz-animation: fadein 3s; -webkit-animation: fadein 3s;-o-animation: fadein 3s;display:none;z-index:9999;}
@@ -60,7 +60,8 @@ strong {font-weight:600;}
 
 #content {position:absolute;width:520px;max-width:520px;left:-520px;top:100px;bottom:20px;padding-right:5%;color:#fff;font-family: 'NeuropolXFreeRegular', sans-serif;animation: slidein 1s;-moz-animation: slidein 1s; -webkit-animation: slidein 1s;-o-animation: slidein 1s;display:none;overflow: auto;}
 #content h1 {font-family: 'NeuropolXFreeRegular';font-size:20px;font-weight:300;margin-bottom:20px;}
-#content p {font-family: 'Source Sans Pro';margin-bottom:10px;color:#ffffff;font-size:15px;line-height:22px;}
+#content p {margin-bottom:10px;color:#ffffff;font-size:11px;line-height:16px;}
+#content table {font-family:'Source Sans Pro';margin-bottom:10px;color:#ffffff;font-size:10px;line-height:15px;}
 #content p:last-child {margin:0;}
 #content p a {color:#ffcc00; text-decoration:none;border-bottom: 1px solid transparent;-webkit-transition: 0.5s ease;transition: 0.5s ease;}
 #content p a:hover {border-bottom: 1px solid #ffcc00;}
@@ -68,18 +69,19 @@ strong {font-weight:600;}
 #content p:last-child{margin:0;}
 #content #faq {margin-top:20px;}
 #content #faq p {margin-bottom:20px;}
+#content #faq table td {width:70px;}
 #content h2.faq {font-size:13px;margin-bottom:10px;cursor:pointer;display:block;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content h2.faq:hover, #content h2.faq.active {border-left:4px solid #ffcc00;padding-left:10px;color:#ffcc00;}
 #content .form {margin-top:10px;}
 #content .form textarea {width:210px;height:60px;float:left;margin-bottom:5px;padding:2px;-webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-ms-border-radius:4px;}
 #content .form input{width:210px;float:left;margin-bottom:5px;padding:2px;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-ms-border-radius:4px;}
 #content .form label{text-align:left;width:120px;padding:2px;padding-right:10px;clear:both;display:block;float:left;margin-bottom:5px;color:#ccc;font-size:12px;text-transform:uppercase;}
-#content .form input, #content .form textarea,#content .form select{background:rgba(0,0,0,.2);color:#ddd;font-size:12px;padding:5px;border:0;}
+#content .form input, #content .form textarea,#content .form select{background:rgba(150,150,150,.5);color:#ddd;font-size:12px;padding:5px;border:0;}
 #content .form br{clear:both;}
 #content .form .submit {width:120px;padding:6px 8px;float:left;display:block;overflow:hidden;margin-top:10px;text-decoration:none;background: rgba(0,0,0,.4);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#eee;border:0;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content .form .submit:hover {background:rgba(0,0,0,.6);cursor:pointer;}
-#content .form textarea[required], #content .form input[required] {background:rgba(0,0,0,.4);}
-#content .form textarea[required]:valid, #content .form input[required]:valid {background:rgba(0,0,0,.2);}
+#content .form textarea[required], #content .form input[required] {background:rgba(200,200,200,.5);}
+#content .form textarea[required]:valid, #content .form input[required]:valid {background:rgba(200,200,200,.5);}
 #contactform p.loading {width:100%;height:100px;background:url(../images/loading.gif) no-repeat center center;opacity:0.4}
 
 .controls {position:fixed;right:140px;bottom:88px;height:22px;z-index:100;}
@@ -228,7 +230,7 @@ strong {font-weight:600;}
 #warning_swipe{z-index:1000;position:fixed;text-align:center;left:50%;top:50%;-moz-transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background:rgba(0,0,0,.9);color:#fff;padding:20px;border-radius: 8px;font-size:1.3em;display:none;}
 #warning_swipe img {vertical-align: middle;margin-bottom:20px;}
 
-.mCSB_container{width:auto;margin-right:30px;overflow:hidden;color:#ffffff}
+.mCSB_container{width:auto;margin-right:30px;overflow:hidden;color:#ffffff;padding:9px;border:1px solid rgba(255,255,255,0.5);background-color:rgba(0,0,0,0.5)}
 .mCSB_container.mCS_no_scrollbar{margin-right:0}
 .mCS_disabled>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar,.mCS_destroyed>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar{margin-right:30px}
 .mCustomScrollBox>.mCSB_scrollTools{width:16px;height:100%;top:0;right:0;opacity:.75;}
@@ -254,7 +256,7 @@ strong {font-weight:600;}
 .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{background:rgba(255,255,255,.9);}
 
 @media only screen and (max-width: 650px), only screen and (max-device-width: 650px) {
-.controls, .more-button, .services .lang, .menu {display:none;visibility: hidden;}
+.controls, .more-button, .lang, .menu {display:none;visibility: hidden;}
 #gallery_back {left:auto;right:10px;}
 #gallery_bullets{display:none;visibility: hidden;}
 .owl-pagination {display:none;}
