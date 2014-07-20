@@ -41,6 +41,7 @@ app.post('/inc_email.html', function(request, response) {
 
   postmark.send({
 <<<<<<< HEAD
+<<<<<<< HEAD
     "From" : "munair@quilombola.kr",
     "To" : "munair@quilombola.kr",
     "Subject" : "Contact from www.quilombola.kr",
@@ -48,6 +49,11 @@ app.post('/inc_email.html', function(request, response) {
     "From" : "munair@quilombolaquilombola.kr",
     "To" : "munair@quilombolaquilombola.kr",
     "Subject" : "Contact from www.quilombolaquilombola.kr",
+>>>>>>> staging
+=======
+    "From" : "munair@quilombola.kr",
+    "To" : "munair@quilombola.kr",
+    "Subject" : "Contact from www.quilombola.kr",
 >>>>>>> staging
     "Tag" : "Inquiry",
     "TextBody" : out

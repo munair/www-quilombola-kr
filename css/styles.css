@@ -78,7 +78,7 @@ strong {font-weight:600;}
 #content .form label{text-align:left;width:120px;padding:2px;padding-right:10px;clear:both;display:block;float:left;margin-bottom:5px;color:#ccc;font-size:12px;text-transform:uppercase;}
 #content .form input, #content .form textarea,#content .form select{background:rgba(150,150,150,.5);color:#ddd;font-size:12px;padding:5px;border:0;}
 #content .form br{clear:both;}
-#content .form .submit {width:120px;padding:6px 8px;float:left;display:block;overflow:hidden;margin-top:10px;text-decoration:none;background: rgba(0,0,0,.4);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#eee;border:0;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
+#content .form .submit {width:120px;padding:6px 8px;float:left;display:block;overflow:hidden;margin-top:10px;text-decoration:none;background: rgba(150,150,150,.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#eee;border:0;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content .form .submit:hover {background:rgba(0,0,0,.6);cursor:pointer;}
 #content .form textarea[required], #content .form input[required] {background:rgba(200,200,200,.5);}
 #content .form textarea[required]:valid, #content .form input[required]:valid {background:rgba(200,200,200,.5);}
